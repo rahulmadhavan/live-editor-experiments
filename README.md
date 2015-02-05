@@ -1,32 +1,34 @@
 
-This project demonstrates how the live editor
-communication channel would work using postMessage.
+### This project demonstrates how the live editor
+###   communication channel would work using postMessage.
 
-PREREQUISITES:
+## Prerequisites:
   you must have the following installed on your system.
 
     python >= 2.6
-    flask >= 0.10
+    [flask](flask.pocoo.org) >= 0.10
 
-TO RUN THE DEMO:
+## To run the demo:
   follow the steps
 
-  a) run the following commands in the given sequence
-    1) cd /path/to/live-editor-experiments
-    2) python server1.py
-    3) python server2.py
+  1. run the following commands in the given sequence
+    1. cd /path/to/live-editor-experiments
+    2. python server1.py
+    3. python server2.py
 
-  b) Open http://localhost:3001/static1/live_editor_client.html
+  * Open http://localhost:3001/static1/live_editor_client.html
 
-  c) Press the Open Live Editor button.
+  * Press the Open Live Editor button.
       Note: On doing step c), if you were asked to enable popup
       refresh the live_editor_client page after enabling popups
 
-  d) enter any text in the given text box and press send.
+  * enter any text in the given text box and press send.
       on pressing send the client sends the textbox contents message
       to the live editor. The live editor modifies the received message by
       appending "received" to it, then it sends the modified message back to
       the client which is diplayed on the client screen
+
+## Context
 
 In production,
   server1 would be the Appinventor appengine.
