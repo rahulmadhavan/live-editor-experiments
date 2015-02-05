@@ -1,0 +1,37 @@
+<html>
+
+<head>
+  <title> Live Editor </title>
+
+  <script src="/js/live-editor.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+</head>
+
+<body>
+
+  <h1> this is Live Editor</h1>
+  <br><br>
+
+  <div id="sender_div"> </div>
+
+  <script type="text/javascript">
+
+    liveEditor.addClientListener(receiveMessage);
+    liveEditor.addSender(sendMessage);
+
+
+    function receiveMessage(event){
+      $( "#sender_div" ).append( "<br>"+event.data);
+    }
+
+    function sendMessage(event){
+      event.source.postMessage("received "+event.data,event.origin);
+    }
+
+
+  </script>
+
+
+</body>
+
+</html>
