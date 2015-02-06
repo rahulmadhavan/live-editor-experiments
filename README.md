@@ -18,9 +18,9 @@ you must have the following installed on your system.
 Follow the steps
 
 * run the following commands in the given sequence
-1. cd /path/to/live-editor-experiments
-2. python server1.py
-3. python server2.py
+  1. cd /path/to/live-editor-experiments
+  2. python server1.py
+  3. python server2.py
 
 * Open http://localhost:3001/static1/live_editor_client.html
 
