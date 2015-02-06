@@ -2,6 +2,9 @@ from datetime import timedelta
 from flask import Flask, request, send_from_directory, make_response, current_app
 from functools import update_wrapper
 import os
+import memcache
+
+mc = memcache.Client(['127.0.0.1:11211'], debug=0)
 
 # used crossdomain from http://flask.pocoo.org/snippets/56/
 def crossdomain(origin=None, methods=None, headers=None,
@@ -46,14 +49,43 @@ def crossdomain(origin=None, methods=None, headers=None,
     return decorator
 
 
-app = Flask(__name__);
+db = {};
 
+def generate_key(user_id,webapp_id):
+    return "user_id:" + user_id + "webapp_id:" + webapp_id
+
+
+app = Flask(__name__);
 root = os.path.join(os.path.dirname(os.path.abspath(__file__)));
 
 @app.route("/")
 @crossdomain(origin='*')
 def hello():
     return "Hello World! from server 2 "
+
+
+
+@app.route('/web-app-store/user/<user_id>/web-app/<web_app_id>', methods=['GET'])
+@crossdomain(origin='*')
+def get_user_web_app(user_id,web_app_id):
+    key = generate_key(user_id,web_app_id)
+    val = mc.get(key.encode('utf-8'))
+    if val is None:
+        response = make_response('',404)
+    else:
+        response = make_response(val,200)
+    response.headers['Content-type'] = 'text/html'
+    return response
+
+@app.route('/web-app-store/user/<user_id>/web-app/<web_app_id>', methods=['POST'])
+@crossdomain(origin='*')
+def post_user_web_app(user_id,web_app_id):
+    key = generate_key(user_id,web_app_id)
+    mc.set(key.encode('utf-8'),request.data.encode('utf-8'))
+    response = make_response('',204)
+    response.headers['Content-type'] = 'text/html'
+    return response
+
 
 @app.route('/<path:path>', methods=['GET'])
 @crossdomain(origin='*')
@@ -62,5 +94,6 @@ def static_proxy(path):
 
 
 
+
 if __name__ == "__main__":
-    app.run(port=3002)
+    app.run(debug=True,port=3002)
