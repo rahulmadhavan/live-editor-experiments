@@ -12,9 +12,9 @@ This project demonstrates how the live editor communication channel would work u
 you must have the following installed on your system.
 
 * python >= 2.6
-* [flask](flask.pocoo.org) >= 0.10
+* [flask](http://flask.pocoo.org) >= 0.10
 * [memcached](http://memcached.org/)
-* [python memcached](pypi.python.org/pypi/python-memcached)
+* [python memcached](http://pypi.python.org/pypi/python-memcached)
 
 ## To run the demo:
 Follow the steps
