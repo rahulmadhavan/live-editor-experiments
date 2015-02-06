@@ -1,17 +1,16 @@
 
-### This project demonstrates how the live editor
-###   communication channel would work using postMessage.
+### This project demonstrates how the live editor communication channel would work using postMessage.
 
 ## Prerequisites:
   you must have the following installed on your system.
 
-    python >= 2.6
-    [flask](flask.pocoo.org) >= 0.10
+  * python >= 2.6
+  * [flask](flask.pocoo.org) >= 0.10
 
 ## To run the demo:
-  follow the steps
+  Follow the steps
 
-  1. run the following commands in the given sequence
+  * run the following commands in the given sequence
     1. cd /path/to/live-editor-experiments
     2. python server1.py
     3. python server2.py
