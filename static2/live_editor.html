@@ -28,8 +28,32 @@
       event.source.postMessage("received "+event.data,event.origin);
     }
 
+    $(function() {
+
+        $("#fetch").click(function(){
+            var request = $.ajax({
+                url: "http://localhost:3002/web-app-store/user/1/web-app/1",
+                type: "GET"
+            });
+
+            request.done(function(msg) {
+              console.log("stored data fetched successfully :" + msg);
+              $("#fetch_data_div").html(msg);
+            });
+
+            request.fail(function( jqXHR, textStatus ) {
+              alert( "Request failed: " + textStatus );
+            });
+        });
+
+    });
 
   </script>
+
+  <hr>
+  <br><br>
+  <div id="fetch_data_div"> </div>
+  <button id="fetch">fetch</button>
 
 
 </body>

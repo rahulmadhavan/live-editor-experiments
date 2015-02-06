@@ -1,7 +1,10 @@
 
 ## Summary
 
-This project demonstrates how the live editor communication channel would work using postMessage.
+This project demonstrates the following
+- how the live editor communication channel would work using postMessage.
+- the usage of the api to POST users Web-App
+- the usage of the api to GET users Web-App
 
 #### The demo has been tested on
 * Google Chrome 40.0.2214.94 (64-bit)
@@ -16,7 +19,7 @@ you must have the following installed on your system.
 * [memcached](http://memcached.org/)
 * [python memcached](http://pypi.python.org/pypi/python-memcached)
 
-## To run the demo:
+## To run:
 Follow the steps
 
 * run the following commands in the given sequence
@@ -26,20 +29,32 @@ Follow the steps
 
 * Open http://localhost:3001/static1/live_editor_client.html
 
-* Press the Open Live Editor button.
-Note: On doing step c), if you were asked to enable popup
-refresh the live_editor_client page after enabling popups
+* for the communication channel demo
+  - Press the Open Live Editor button.
+  Note: On doing step c), if you were asked to enable popup
+  refresh the live_editor_client page after enabling popups
 
-* enter any text in the given text box and press send.
-on pressing send the client sends the textbox contents message
-to the live editor. The live editor modifies the received message by
-appending "received" to it, then it sends the modified message back to
-the client which is diplayed on the client screen
+  - Type some text in the text box next to the "send" button and press send.
+  on pressing send the client sends the textbox contents message
+  to the live editor. The live editor modifies the received message by
+  appending "received" to it, then it sends the modified message back to
+  the client which is displayed on the client screen
+
+* for the post channel demo
+   - Type some text in the text box next to the "store" button and press store
+   - Switch to the live editor window/tab and press get contents
+   - the text you stored in the live editor client window/tab.
+     should now show up in the live editor window/tab when you press the
+     fetch button.
+
 
 ## Context
 
 In production,
-server1 would be the Appinventor appengine.
-server2 would be running on the users machine.
-server2 would be responsible for storing the users web app,
-thus server2 would be serving the users webapp to the live editor.
+- server1 would be the Appinventor appengine.
+- server2 would be running on the users machine.
+- server2 would be responsible for storing the users Web-App,
+thus server2 would be serving the users Web-App to the live editor.
+- the POST API should be used by the Appinventor window/tab/client to
+store the users Web-App
+- the GET API would fetch the users Web-App.

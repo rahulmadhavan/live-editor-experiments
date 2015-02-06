@@ -81,8 +81,13 @@ def get_user_web_app(user_id,web_app_id):
 @crossdomain(origin='*')
 def post_user_web_app(user_id,web_app_id):
     key = generate_key(user_id,web_app_id)
-    mc.set(key.encode('utf-8'),request.data.encode('utf-8'))
-    response = make_response('',204)
+    value = mc.set(key.encode('utf-8'),request.data.encode('utf-8'))
+    print request.data
+    print value
+    if value > 0:
+        response = make_response('',204)
+    else:
+        response = make_response('',500)
     response.headers['Content-type'] = 'text/html'
     return response
 
