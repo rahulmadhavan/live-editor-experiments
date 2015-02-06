@@ -3,8 +3,8 @@
 
 This project demonstrates the following
 - how the live editor communication channel would work using postMessage.
-- the usage of the api to POST users Web-App
-- the usage of the api to GET users Web-App
+- the usage of the [api](API.md) to POST users Web-App
+- the usage of the [api](API.md) to GET users Web-App
 
 #### The demo has been tested on
 * Google Chrome 40.0.2214.94 (64-bit)
@@ -40,12 +40,15 @@ Follow the steps
   appending "received" to it, then it sends the modified message back to
   the client which is displayed on the client screen
 
-* for the post channel demo
+* for the web-app-store demo
    - Type some text in the text box next to the "store" button and press store
-   - Switch to the live editor window/tab and press get contents
+   - Switch to the live editor window/tab and press the fetch button
    - the text you stored in the live editor client window/tab.
-     should now show up in the live editor window/tab when you press the
-     fetch button.
+     should now show up in the live editor window/tab
+
+## API doc for web-app-store :
+
+  [click here](API.md)
 
 
 ## Context

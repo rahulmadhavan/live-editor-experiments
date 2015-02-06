@@ -7,12 +7,14 @@
 
 ####To store the users web-app
 
-```POST http://<hostname:port>/web-app-store/user/<user-id>/web-app/<web-app-id>
+```
+POST http://<hostname:port>/web-app-store/user/<user-id>/web-app/<web-app-id>
 
 HEADERS:
     contentType : text/html or text/plain
 
-BODY: The users Web-App```
+BODY: The users Web-App
+```
 
 
 
